@@ -1,0 +1,36 @@
+@import "tailwindcss";
+/* Tailwind theme */
+@theme {
+  --color-main: #0090f0;
+  --color-p: #7b7b7b;
+  --color-bg: #f3f3f3;
+  --color-white: #fff;
+  --color-heading: #253237;
+  --color-border: #d6d6d6d5;
+  /* font familt */
+  --font-Inter: "Inter", sans-serif;
+  --font-DM: "DM Sans", sans-serif;
+
+}
+
+.top-slide::after{
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    width: 100px;
+    height: 2px;
+    background-color: var(--color-main);
+}
+
+.product:hover{
+    box-shadow: 10px 10px 15px #9494942b;
+}
+
+
+.slide-products .icons span{
+    @apply h-10 w-10 bg-bg flex justify-center items-center rounded-full cursor-pointer
+}
+
+.product:hover .icons{
+    @apply right-5
+}

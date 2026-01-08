@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* Tailwind theme */
+@theme {
+  --color-main: #0090f0;
+  --color-p: #7b7b7b;
+  --color-bg: #f3f3f3;
+  --color-white: #fff;
+  --color-heading: #253237;
+  --color-border: #d6d6d6d5;
+  /* font familt */
+  --font-Inter: "Inter", sans-serif;
+  --font-DM: "DM Sans", sans-serif;
+
+}
+
+/* General class */
+img{
+  @apply w-full
+}
+
+h1, h2, h3, h4, h5, h6{
+  @apply text-heading font-DM
+  }
+
+span {
+  @apply text-main;
+}
+
+p{
+  @apply text-p
+}
+
+input, button, select, textarea{
+  @apply outline-0 border-0 
+}
+
+a{
+  @apply text-heading 
+}
+
+.btn{
+  @apply py-2.5 px-3 capitalize rounded-4xl cursor-pointer bg-main text-white! flex gap-10 items-center transition duration-500  w-fit hover:scale-103 ;
+}
+
+.container{
+  @apply w-[90%] my-0 mx-auto max-w-337.5
+}
+
+.svg-icon-span{
+  @apply w-10 h-10 bg-bg flex justify-center items-center rounded-full cursor-pointer transition duration-300 hover:bg-main hover:text-white
+}
+
+.skeleton{
+ background-color: #e2e5e7;
+ background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+ background-size: 40px 100%;
+ background-repeat: no-repeat;
+ background-position: left -60px top 0;
+ animation: skine 1s ease infinite;
+}
+
+@keyframes skine {
+  to {
+    background-position: right -60px top 0;
+  }
+}
+
+.product.in-cart .btn-cart{
+  @apply bg-main 
+}
+
+.product.in-cart .btn-cart svg{
+  @apply fill-white
+}
+
+
+/* header Style */
+li.active {
+  @apply bg-[#0070ca]
+}
+
+.icon svg{
+  font-size: 30px;
+}
+
+.icon {
+  @apply relative
+}
+
+.icon .count{
+  @apply absolute -top-1.5 -right-2.5 bg-main text-white w-5 h-5 text-center rounded-full leading-loose text-[11px];
+} 
+
+.category-nav-list{
+  @apply absolute top-full left-0 w-full bg-white border border-[#999] border-t-0 flex flex-col max-h-100 overflow-y-auto ;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: ease-in-out 0.3s;
+}
+
+.category-nav-list.active{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+}
+
+.category-btn{
+  @apply h-full w-full flex justify-between items-center bg-main  py-0 px-4.5 cursor-pointer
+}
+/* Bottom header */
+.sing-rege-icons svg{
+  @apply text-2xl fill-white
+}
+
+
+/* Cart Page */
+.checkout .items {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.checkout .items::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera*/
+}
+
+.checkout .items .item-cart:last-child{
+  border-bottom: none ;
+}
+
+
+
+
+
+
