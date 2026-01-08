@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,9 +8,6 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
-
-
-
 
 export default function Heroslider() {
   return (
@@ -25,7 +21,7 @@ export default function Heroslider() {
             }}
             pagination={true}
             loop={true}
-            modules={[Pagination, Autoplay,]}
+            modules={[Pagination, Autoplay]}
             className="mySwiper"
           >
             <SwiperSlide>
@@ -38,7 +34,7 @@ export default function Heroslider() {
                 </Link>
               </div>
               <img
-                src={"/src/assets/img/banner_Hero2.jpg"}
+                src={"../src/assets/img/banner_Hero2.jpg"}
                 alt="Slider hero_2"
               />
             </SwiperSlide>
@@ -51,10 +47,7 @@ export default function Heroslider() {
                   Shop Now
                 </Link>
               </div>
-              <img
-                src={"/src/assets/img/banner_Hero1.jpg"}
-                alt="Slider hero_1"
-              />
+              <img src={"../src/assets/img/banner_Hero1.jpg"} alt="Slider hero_1" />
             </SwiperSlide>
             <SwiperSlide>
               <div className="content">
@@ -65,10 +58,7 @@ export default function Heroslider() {
                   Shop Now
                 </Link>
               </div>
-              <img
-                src={"/src/assets/img/banner_Hero3.jpg"}
-                alt="Slider hero_3"
-              />
+              <img src={"../src/assets/img/banner_Hero3.jpg"} alt="Slider hero_3" />
             </SwiperSlide>
           </Swiper>
         </div>
