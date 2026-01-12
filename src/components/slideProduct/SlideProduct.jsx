@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Product from "./Product";
 import "./slideProduct.css";
 
@@ -11,7 +11,33 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 
 export default function SlideProduct({ title, data }) {
-  
+
+// to get number of product in the row
+  const [slidesPerView, setSlidePerView] = useState(
+    innerWidth > 1300
+      ? 5
+      : innerWidth > 900
+      ? 4
+      : innerWidth > 800
+      ? 3
+      : innerWidth > 600
+      ? 2
+      : 1
+  );
+  window.addEventListener("resize", function () {
+    let numberOfProduct =
+      innerWidth > 1300
+        ? 5
+        : innerWidth > 900
+        ? 4
+        : innerWidth > 800
+        ? 3
+        : innerWidth > 600
+        ? 2
+        : 1;
+    setSlidePerView(numberOfProduct);
+  });
+
   return (
     <div className="slide-products py-12.5 slide">
       <div className="container">
@@ -24,7 +50,7 @@ export default function SlideProduct({ title, data }) {
         </div>
 
         <Swiper
-          slidesPerView={5}
+          slidesPerView={slidesPerView}
           spaceBetween={30}
           pagination={false}
           loop={true}
@@ -33,11 +59,11 @@ export default function SlideProduct({ title, data }) {
             disableOnInteraction: false,
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper "
+          className="mySwiper"
         >
           {data?.map((product) => (
             <SwiperSlide>
-              <Product  item={product} />
+              <Product item={product} />
             </SwiperSlide>
           ))}
         </Swiper>
