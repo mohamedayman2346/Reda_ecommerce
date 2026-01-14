@@ -12,31 +12,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 export default function SlideProduct({ title, data }) {
 
-// to get number of product in the row
-  const [slidesPerView, setSlidePerView] = useState(
-    innerWidth > 1300
-      ? 5
-      : innerWidth > 900
-      ? 4
-      : innerWidth > 800
-      ? 3
-      : innerWidth > 600
-      ? 2
-      : 1
-  );
-  window.addEventListener("resize", function () {
-    let numberOfProduct =
-      innerWidth > 1300
-        ? 5
-        : innerWidth > 900
-        ? 4
-        : innerWidth > 800
-        ? 3
-        : innerWidth > 600
-        ? 2
-        : 1;
-    setSlidePerView(numberOfProduct);
-  });
+
 
   return (
     <div className="slide-products py-12.5 slide">
@@ -50,7 +26,7 @@ export default function SlideProduct({ title, data }) {
         </div>
 
         <Swiper
-          slidesPerView={slidesPerView}
+          slidesPerView={'auto'}
           spaceBetween={30}
           pagination={false}
           loop={true}
@@ -58,8 +34,24 @@ export default function SlideProduct({ title, data }) {
             delay: 2500,
             disableOnInteraction: false,
           }}
+          breakpoints = {{
+            600 : {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            800 : {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1000 : {
+              slidesPerView: 4,
+            },
+            1300 : {
+              slidesPerView: 5,
+            },
+          }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper"
+          className="mySwiper w-full!"
         >
           {data?.map((product) => (
             <SwiperSlide>

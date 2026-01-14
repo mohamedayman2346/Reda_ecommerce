@@ -69,7 +69,7 @@ export default function Bottomheader() {
             </div>
           </div>
 
-          <div className="nav_links flex h-full">
+          <div className="nav_links  h-full hidden lg:flex">
             {navLinks.map((link, i) => (
               <li
                 key={i}

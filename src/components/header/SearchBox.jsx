@@ -46,11 +46,11 @@ export default function SearchBox() {
   },[location])
 
   return (
-    <div className="searchBox-conteiner relative">
+    <div className="searchBox-conteiner relative order-3 sm:order-2 mx-auto">
       <form
         onSubmit={handleSubmit}
         action=""
-        className="search-box w-125 flex items-center bg-bg rounded-4xl border border-main"
+        className="search-box w-75 lg:w-125 items-center flex bg-bg rounded-4xl border border-main"
       >
         <input
           onChange={(e) => setSearch(e.target.value)}
@@ -59,7 +59,7 @@ export default function SearchBox() {
           id="search"
           placeholder="Search for Product"
           autoComplete="off"
-          className="h-11 w-110 py-1.5 pe-4 ps-5 bg-bg rounded-l-3xl"
+          className="h-11 w-60 lg:w-110 py-1.5 pe-4 ps-5 bg-bg rounded-l-3xl "
         />
         <button className="h-11 w-15 ps-5 bg-main text-[10px] cursor-pointer rounded-e-4xl">
           <FaSearch className="fill-white text-xl" />
@@ -68,9 +68,8 @@ export default function SearchBox() {
       {suggestions.length > 0 && (
         <ul className="suggestion absolute border border-border rounded bg-white w-full z-40 py-2 px-5">
           {suggestions.map((item) => (
-            <Link to={`/products/${item.id}`}>
+            <Link to={`/products/${item.id}`} key={item.id} >
               <li
-                key={item.id}
                 className="flex items-center cursor-pointer gap-5 px-1 py-1 border-b border-border"
               >
                 <img src={item.images[0]} className="w-7.5!" alt={item.title} />
