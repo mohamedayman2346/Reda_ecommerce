@@ -7,7 +7,8 @@ import { Link, useLocation } from "react-router-dom";
 export default function Bottomheader() {
   const [categores, setCategores] = useState([]);
   const [categoresIsOpen, setCategoresIsOpen] = useState(false);
-  
+  const [navIsOpen, setnavIsOpen] = useState(false);
+
   const location = useLocation();
 
   //  get Category data
@@ -18,7 +19,7 @@ export default function Bottomheader() {
   }, []);
 
   useEffect(() => {
-    setCategoresIsOpen(false)
+    setCategoresIsOpen(false);
   }, [location]);
 
   const navLinks = [
@@ -68,7 +69,7 @@ export default function Bottomheader() {
               ))}
             </div>
           </div>
-
+          {/* large Screen */}
           <div className="nav_links  h-full hidden lg:flex">
             {navLinks.map((link, i) => (
               <li
@@ -84,13 +85,54 @@ export default function Bottomheader() {
             ))}
           </div>
         </nav>
-        <div className="sing-rege-icons flex gap-5">
+        <div className="sing-rege-icons hidden lg:flex gap-5">
           <Link to="/">
             <MdOutlineLogin />
           </Link>
           <Link to="/">
             <FaUserPlus />
           </Link>
+        </div>
+
+        {/* Mobil Screen */}
+        <div className="dropDown category-nav w-55 h-full relative lg:hidden">
+          <div
+              className="category-btn"
+              onClick={() => setnavIsOpen((prev) => !prev)}
+            >
+              <IoMdMenu className="fill-white" />
+              <p className="text-white text-sm font-semibold">
+                Browse Page
+              </p>
+              {/* Arrow */}
+              {navIsOpen ? (
+                <IoMdArrowDropdown className="fill-white" />
+              ) : (
+                <IoMdArrowDropleft className="fill-white" />
+              )}
+            </div>
+          <div className={`pageLink category-nav-list z-10 rounded py-2 ${navIsOpen && "active"}`}>
+            {navLinks.map((link, i) => (
+              <li
+                key={i}
+                className={`h-full items-center hover:bg-amber-100 flex py-1 px-3  border-b border-border w-full ${
+                  location.pathname == link.Link && "active"
+                }`}
+              >
+                <Link className="text-black!" to={link.Link}>
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+            <Link to="/" className="flex px-3 hover:bg-amber-100  border-b border-border w-full py-1 items-center gap-10 ">
+            <MdOutlineLogin />
+            LogIn
+          </Link>
+          <Link to="/" className="flex px-3 hover:bg-amber-100 items-center gap-10 ">
+            <FaUserPlus />
+            Register
+          </Link>
+          </div>
         </div>
       </div>
     </div>

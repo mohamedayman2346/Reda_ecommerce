@@ -34,7 +34,7 @@ export default function Cart() {
   return (
     <PageTransition>
       <div className="pt-40 checkout my-12.5 ">
-        <div className="orderSummary pb-10 w-[45%] px-5 border border-border shadow-[0_8px_10px_#c0bfbf44] rounded mx-auto">
+        <div className="orderSummary pb-10 w-[90%] lg:w-[45%] px-5 border border-border shadow-[0_8px_10px_#c0bfbf44] rounded mx-auto">
           <h1 className="border-b border-border py-5 mb-5 text-main! text-2xl">
             Order Summary
           </h1>

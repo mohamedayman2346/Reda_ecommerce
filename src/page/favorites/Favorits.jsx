@@ -19,7 +19,7 @@ export default function Favorits() {
               fuga!
             </p>
           </div>
-          <div className="slide-products flex items-center flex-wrap gap-5 justify-between ">
+          <div className="slide-products flex items-center flex-wrap gap-5 justify-center md:justify-start">
             {favorites.length === 0 ? (
               <div className="h-screen w-screen flex items-center justify-center">
                 <p>You Don't have any Favorites Product</p>
